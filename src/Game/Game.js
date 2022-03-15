@@ -2,11 +2,14 @@ import React from "react";
 import "./Game.css";
 import Board from "../Board/Board.js";
 import { useState } from "react";
+import { useWindowSize } from "@react-hook/window-size";
+import Confetti from "react-confetti";
 
 function Game() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXisNext] = useState(true);
   const winner = calculateWinner(board);
+  const [width, height] = useWindowSize();
 
   const handleClick = (i) => {
     const boardCopy = [...board];
@@ -18,9 +21,20 @@ function Game() {
     setXisNext(!xIsNext);
   };
 
+  const handleReset = () => {
+    setBoard(Array(9).fill(null));
+  };
+
   return (
     <div className="container">
+      {/* {winner ? (
+        <Confetti>
+          width={width}
+          height={height}
+        </Confetti>
+      ) : null} */}
       <div className="game">
+        <h1 className="heading">Tic Tac Toe</h1>
         <Board squares={board} onClick={handleClick} />
         <div>
           <p className="text">
@@ -30,6 +44,9 @@ function Game() {
           </p>
         </div>
       </div>
+      <button className="reset-button" onClick={handleReset}>
+        Reset
+      </button>
     </div>
   );
 }

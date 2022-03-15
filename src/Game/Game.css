@@ -4,8 +4,37 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.text {
+.text,
+.heading {
   text-align: center;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+}
+
+.heading {
+  font-size: 40px;
+}
+
+.reset-button {
+  margin: 2rem;
+  font-size: 16px;
+  padding: 0.8rem 1.6rem;
+  border: black 0.5px solid;
+  border-radius: 40px;
+  background-color: white;
+  color: black;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5ch;
+  transition: 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: rgb(183, 250, 221);
+  color: white;
+  border: white 0.5px solid;
 }
